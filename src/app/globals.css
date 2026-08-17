@@ -2,46 +2,44 @@
 
 :root {
   /* Brand */
-  --color-ink: #16211a;
+  --color-ink: #14201a;
   --color-forest: #202b22;
-  --color-forest-deep: #141b16;
-  --color-forest-mist: #3d4c3f;
+  --color-forest-deep: #10160f;
+  --color-forest-tint: #e6eadf;
   --color-gold: #ffd85f;
   --color-gold-deep: #d9a72b;
-  --color-gold-soft: #fff3d6;
-  /* Accessible on paper/white text (~5:1) — gold-deep only clears AA on dark backgrounds. */
+  --color-gold-tint: #fff3d6;
+  /* Accessible on paper/white text (~5:1) — gold/gold-deep only clear AA on dark. */
   --color-gold-ink: #8a6710;
 
   /* Neutrals */
-  --color-paper: #f6f1e6;
-  --color-paper-card: #fffdf8;
+  --color-cream: #faf8f2;
+  --color-white: #ffffff;
   --color-muted: #5c6459;
-  --color-line: rgba(22, 33, 26, 0.14);
-  --color-line-soft: rgba(22, 33, 26, 0.07);
+  --color-line: rgba(20, 32, 26, 0.12);
+  --color-line-soft: rgba(20, 32, 26, 0.07);
 
-  /* Type */
-  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  /* Type — one confident grotesk family, two weights of personality */
+  --font-display: var(--font-archivo), "Arial Black", sans-serif;
   --font-sans: var(--font-jost), "Gill Sans", Optima, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: var(--font-jbmono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 @theme inline {
   --color-ink: var(--color-ink);
   --color-forest: var(--color-forest);
   --color-forest-deep: var(--color-forest-deep);
-  --color-forest-mist: var(--color-forest-mist);
+  --color-forest-tint: var(--color-forest-tint);
   --color-gold: var(--color-gold);
   --color-gold-deep: var(--color-gold-deep);
-  --color-gold-soft: var(--color-gold-soft);
+  --color-gold-tint: var(--color-gold-tint);
   --color-gold-ink: var(--color-gold-ink);
-  --color-paper: var(--color-paper);
-  --color-paper-card: var(--color-paper-card);
+  --color-cream: var(--color-cream);
+  --color-white: var(--color-white);
   --color-muted: var(--color-muted);
   --color-line: var(--color-line);
   --color-line-soft: var(--color-line-soft);
-  --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
 }
 
 html {
@@ -49,7 +47,7 @@ html {
 }
 
 body {
-  background: var(--color-paper);
+  background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

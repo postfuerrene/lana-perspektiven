@@ -1,6 +1,8 @@
 import { PageHero } from "./PageHero";
-import { Section, Eyebrow } from "./Section";
+import { Section } from "./Section";
 import { PrevNext } from "./PrevNext";
+import { Tag } from "./ui/Tag";
+import { NumberBadge } from "./ui/NumberBadge";
 import { workPackages, type WorkPackage } from "@/lib/content";
 
 export function APDetail({ wp }: { wp: WorkPackage }) {
@@ -17,33 +19,33 @@ export function APDetail({ wp }: { wp: WorkPackage }) {
         eyebrowMark={wp.id}
       />
 
-      <Section tone="paper">
-        <div className="grid gap-10 lg:grid-cols-[0.75fr_1.5fr_0.85fr] lg:gap-8 lg:items-stretch">
+      <Section tone="cream">
+        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.5fr_0.9fr] lg:items-stretch">
           {/* Ziel */}
-          <div className="rounded-sm bg-forest/[0.06] border border-line p-8">
-            <Eyebrow tone="forest">Ziel</Eyebrow>
-            <p className="font-serif text-xl leading-relaxed text-ink">{wp.ziel}</p>
+          <div className="rounded-[28px] bg-forest p-8">
+            <Tag tone="gold">Ziel</Tag>
+            <p className="mt-4 font-display font-bold text-xl leading-snug text-white">{wp.ziel}</p>
           </div>
 
           {/* Projekte */}
           <div>
-            <Eyebrow tone="forest">Konkrete Projekte &amp; Produkte</Eyebrow>
-            <div className="flex flex-col gap-3">
+            <Tag tone="line">Konkrete Projekte &amp; Produkte</Tag>
+            <div className="mt-4 flex flex-col gap-3">
               {wp.projekte.map((p) => (
                 <div
                   key={p.num}
-                  className="flex gap-5 items-start rounded-sm border border-line bg-paper-card px-6 py-4"
+                  className="flex gap-4 items-start rounded-2xl border border-line bg-white px-5 py-4"
                 >
-                  <span className="font-mono font-semibold text-sm text-gold-ink pt-0.5">
+                  <NumberBadge tone="tint" className="h-9 w-9 shrink-0 text-sm">
                     {p.num}
-                  </span>
-                  <p className="font-sans text-[0.95rem] leading-relaxed text-ink/85">{p.text}</p>
+                  </NumberBadge>
+                  <p className="pt-1 font-sans text-[0.95rem] leading-relaxed text-ink/85">{p.text}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-3 rounded-sm border-l-4 border-forest bg-forest/[0.06] px-6 py-4">
+            <div className="mt-3 rounded-2xl bg-gold-tint px-6 py-5">
               <p className="font-sans text-[0.95rem] leading-relaxed text-ink/85">
-                <span className="font-semibold uppercase tracking-[0.06em] text-forest">
+                <span className="font-bold uppercase tracking-[0.04em] text-gold-ink">
                   Format &amp; Förderung ·{" "}
                 </span>
                 {wp.format}
@@ -53,14 +55,14 @@ export function APDetail({ wp }: { wp: WorkPackage }) {
 
           {/* Ergebnisse */}
           <div>
-            <Eyebrow tone="forest">Messbare Ergebnisse</Eyebrow>
-            <div className="flex h-[calc(100%-2rem)] flex-col justify-center gap-4 rounded-sm border border-line border-l-4 border-l-gold-deep bg-paper-card px-7 py-7">
+            <Tag tone="line">Messbare Ergebnisse</Tag>
+            <div className="mt-4 flex h-[calc(100%-2.75rem)] flex-col justify-center gap-4 rounded-[28px] bg-ink px-7 py-8">
               {wp.ergebnisse.map((e) => (
                 <div key={e} className="flex gap-3 items-start">
-                  <span className="text-gold-ink font-semibold shrink-0" aria-hidden="true">
+                  <span className="text-gold font-bold shrink-0" aria-hidden="true">
                     →
                   </span>
-                  <p className="font-sans text-sm leading-relaxed text-ink/85">{e}</p>
+                  <p className="font-sans text-sm leading-relaxed text-white/85">{e}</p>
                 </div>
               ))}
             </div>

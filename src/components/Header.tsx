@@ -12,18 +12,18 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-forest text-white">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-4 lg:px-12">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-3 lg:px-10">
         <Link href="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/assets/logo-weiss.png"
             alt="Stiftung IBZ St. Marienthal"
             width={180}
             height={51}
-            className="h-8 w-auto lg:h-9"
+            className="h-7 w-auto lg:h-8"
             priority
           />
-          <span className="hidden sm:block h-6 w-px bg-white/25" />
-          <span className="hidden sm:block font-sans text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
+          <span className="hidden sm:block h-5 w-px bg-white/25" />
+          <span className="hidden sm:block font-display text-xs font-extrabold uppercase tracking-[0.12em] text-white">
             LaNa Perspektiven
           </span>
         </Link>
@@ -35,14 +35,11 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-3 py-2 uppercase tracking-[0.08em] transition-colors ${
-                  active ? "text-gold" : "text-white/80 hover:text-white"
+                className={`rounded-full px-4 py-2 font-semibold uppercase tracking-[0.04em] transition-colors ${
+                  active ? "bg-gold text-ink" : "text-white/80 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 {item.label}
-                {active && (
-                  <span className="absolute inset-x-3 -bottom-[1px] h-[2px] bg-gold" />
-                )}
               </Link>
             );
           })}
@@ -71,8 +68,8 @@ export function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`block py-3 text-base uppercase tracking-[0.06em] ${
-                      active ? "text-gold" : "text-white/85"
+                    className={`block rounded-full px-4 py-3 text-base font-semibold uppercase tracking-[0.04em] ${
+                      active ? "bg-gold text-ink" : "text-white/85"
                     }`}
                   >
                     {item.label}

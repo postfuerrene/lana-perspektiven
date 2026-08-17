@@ -5,7 +5,7 @@ import { mitgestalten, nav } from "@/lib/content";
 export function Footer() {
   return (
     <footer className="bg-forest-deep text-white/80">
-      <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-12">
+      <div className="mx-auto max-w-[1440px] px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <Image
@@ -13,15 +13,15 @@ export function Footer() {
               alt="Stiftung IBZ St. Marienthal"
               width={180}
               height={51}
-              className="h-9 w-auto mb-6"
+              className="h-8 w-auto mb-6"
             />
-            <p className="font-serif italic text-xl leading-relaxed text-white/85 max-w-sm">
-              Landesstelle Nachbarsprachen Sachsen im Verbund der Stiftung IBZ St. Marienthal.
+            <p className="font-display font-extrabold text-2xl leading-snug text-white max-w-sm">
+              Landesstelle Nachbarsprachen Sachsen im Verbund der Stiftung IBZ.
             </p>
           </div>
 
           <div>
-            <div className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-gold mb-4">
+            <div className="font-sans text-xs font-bold uppercase tracking-[0.14em] text-gold mb-4">
               Navigation
             </div>
             <ul className="flex flex-col gap-2 font-sans text-sm">
@@ -36,7 +36,7 @@ export function Footer() {
           </div>
 
           <div>
-            <div className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-gold mb-4">
+            <div className="font-sans text-xs font-bold uppercase tracking-[0.14em] text-gold mb-4">
               {mitgestalten.contactLabel}
             </div>
             <a

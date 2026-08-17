@@ -1,61 +1,54 @@
 import Image from "next/image";
 import { RiverMotif } from "./RiverMotif";
+import { Tag } from "./ui/Tag";
+import { NumberBadge } from "./ui/NumberBadge";
 
 type PageHeroProps = {
   kicker: string;
   title: string;
   lead?: string;
   eyebrowMark?: string;
-  /**
-   * Optional hero photograph, e.g. "/assets/hero/synergien.jpg". Drop a file
-   * at that path and pass it here to swap the abstract motif for a real
-   * photo — see IMAGES.md for the full placeholder → Pexels mapping.
-   */
   photoSrc?: string;
 };
 
 export function PageHero({ kicker, title, lead, eyebrowMark, photoSrc }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-forest text-white">
-      {photoSrc && (
-        <Image
-          src={photoSrc}
-          alt=""
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+    <section className="relative overflow-hidden bg-cream">
+      {photoSrc ? (
+        <>
+          <Image src={photoSrc} alt="" fill priority className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-forest/70" />
+        </>
+      ) : (
+        <>
+          <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gold-tint" aria-hidden="true" />
+          <RiverMotif className="absolute inset-x-0 bottom-0 h-32 w-full opacity-70" tone="forest" />
+        </>
       )}
-      {!photoSrc && (
-        <RiverMotif
-          className="absolute inset-x-0 bottom-0 h-40 w-full opacity-70"
-          tone="gold"
-        />
-      )}
-      <div
-        className={`absolute inset-0 ${
-          photoSrc
-            ? "bg-forest/70"
-            : "bg-gradient-to-b from-forest via-forest to-forest-deep/60"
-        }`}
-      />
-      <div className="relative mx-auto max-w-[1400px] px-6 py-20 lg:px-12 lg:py-28">
-        <div className="flex items-start gap-8">
+      <div className="relative mx-auto max-w-[1440px] px-6 py-16 lg:px-10 lg:py-24">
+        <div className="flex flex-wrap items-center gap-4 mb-7">
+          <Tag tone={photoSrc ? "line" : "forest"}>{kicker}</Tag>
+        </div>
+        <div className="flex items-start gap-6 lg:gap-8">
           {eyebrowMark && (
-            <span className="font-serif italic text-[clamp(3.5rem,9vw,6.5rem)] leading-none text-gold shrink-0">
+            <NumberBadge tone="gold" className="h-20 w-20 shrink-0 text-3xl lg:h-28 lg:w-28 lg:text-4xl">
               {eyebrowMark}
-            </span>
+            </NumberBadge>
           )}
           <div>
-            <div className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-white/60 mb-4">
-              {kicker}
-            </div>
-            <h1 className="font-serif font-normal text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] max-w-4xl">
+            <h1
+              className={`font-display font-extrabold text-[clamp(2rem,5vw,3.75rem)] leading-[1.02] max-w-4xl ${
+                photoSrc ? "text-white" : "text-ink"
+              }`}
+            >
               {title}
             </h1>
             {lead && (
-              <p className="mt-6 max-w-3xl font-serif italic text-[clamp(1.15rem,2.2vw,1.5rem)] leading-relaxed text-white/90">
+              <p
+                className={`mt-6 max-w-2xl font-sans text-[clamp(1.05rem,1.6vw,1.25rem)] leading-relaxed ${
+                  photoSrc ? "text-white/90" : "text-muted"
+                }`}
+              >
                 {lead}
               </p>
             )}

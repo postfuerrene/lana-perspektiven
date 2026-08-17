@@ -1,7 +1,11 @@
 import Image from "next/image";
-import { Section, Eyebrow } from "@/components/Section";
+import Link from "next/link";
+import { Section } from "@/components/Section";
 import { Tile } from "@/components/Tile";
-import { RiverMotif, RiverDivider } from "@/components/RiverMotif";
+import { RiverMotif, RiverThread } from "@/components/RiverMotif";
+import { Tag } from "@/components/ui/Tag";
+import { ButtonLabel } from "@/components/ui/Button";
+import { NumberBadge } from "@/components/ui/NumberBadge";
 import { meta, kontext, overviewIntro, mitgestalten, workPackages } from "@/lib/content";
 
 // Drop a file at /public/assets/hero/home.jpg and set this to
@@ -9,77 +13,100 @@ import { meta, kontext, overviewIntro, mitgestalten, workPackages } from "@/lib/
 // See IMAGES.md for the recommended Pexels search + crop.
 const HERO_PHOTO: string | undefined = undefined;
 
+const tileTones = ["forest", "gold", "tint", "white", "tint", "gold"] as const;
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-forest text-white">
-        {HERO_PHOTO && (
-          <Image src={HERO_PHOTO} alt="" fill priority className="object-cover" sizes="100vw" />
+      <section className="relative overflow-hidden bg-cream">
+        {HERO_PHOTO ? (
+          <>
+            <Image src={HERO_PHOTO} alt="" fill priority className="object-cover" sizes="100vw" />
+            <div className="absolute inset-0 bg-forest/70" />
+          </>
+        ) : (
+          <>
+            <div
+              className="absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-gold-tint"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-forest-tint"
+              aria-hidden="true"
+            />
+            <RiverMotif className="absolute inset-x-0 bottom-0 h-48 w-full opacity-60" tone="forest" />
+          </>
         )}
-        {!HERO_PHOTO && (
-          <RiverMotif className="absolute inset-x-0 bottom-0 h-56 w-full opacity-60" tone="gold" />
-        )}
-        <div
-          className={`absolute inset-0 ${
-            HERO_PHOTO
-              ? "bg-forest/70"
-              : "bg-[radial-gradient(ellipse_at_top_right,_rgba(255,216,95,0.10),_transparent_55%)]"
-          }`}
-        />
-        <div className="relative mx-auto flex min-h-[78vh] max-w-[1400px] flex-col justify-center px-6 py-24 lg:px-12">
-          <div className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-white/65 mb-6">
-            {meta.kicker}
-          </div>
-          <h1 className="max-w-4xl font-serif font-normal text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] text-white">
+        <div className="relative mx-auto flex min-h-[82vh] max-w-[1440px] flex-col justify-center px-6 py-20 lg:px-10">
+          <Tag tone={HERO_PHOTO ? "line" : "forest"}>{meta.kicker}</Tag>
+          <h1
+            className={`mt-7 max-w-4xl font-display font-black text-[clamp(2.75rem,7.5vw,6rem)] leading-[0.98] ${
+              HERO_PHOTO ? "text-white" : "text-ink"
+            }`}
+          >
             {meta.title}
           </h1>
-          <p className="mt-7 max-w-2xl font-serif italic text-[clamp(1.25rem,2.6vw,1.75rem)] leading-relaxed text-white/90">
+          <p
+            className={`mt-7 max-w-2xl font-sans text-[clamp(1.15rem,2.2vw,1.4rem)] leading-relaxed ${
+              HERO_PHOTO ? "text-white/90" : "text-muted"
+            }`}
+          >
             {meta.subtitle}
           </p>
-          <div className="mt-12 h-[3px] w-20 bg-gold" />
-          <div className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.1em] text-white/80">
-            {meta.date} · Input: {meta.author}
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            <Link href="#uebersicht" className="group">
+              <ButtonLabel variant="dark">Bausteine entdecken</ButtonLabel>
+            </Link>
+            <span
+              className={`font-sans text-sm font-semibold uppercase tracking-[0.06em] ${
+                HERO_PHOTO ? "text-white/75" : "text-muted"
+              }`}
+            >
+              {meta.date} · Input: {meta.author}
+            </span>
           </div>
         </div>
       </section>
 
       {/* Kontext / Hintergrund */}
-      <Section tone="paper">
-        <Eyebrow tone="forest">Entstehungskontext</Eyebrow>
-        <h2 className="font-serif font-normal text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight text-ink max-w-3xl">
+      <Section tone="white">
+        <Tag tone="gold">Entstehungskontext</Tag>
+        <h2 className="mt-4 font-display font-extrabold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight text-ink max-w-3xl">
           Wie dieses Konzept entstanden ist
         </h2>
 
-        <div className="mt-14 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div className="flex flex-col">
-            <span className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-forest mb-3">
-              {kontext.zeitraumLabel}
-            </span>
-            <span className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-ink">
-              {kontext.zeitraum}
-            </span>
-            <blockquote className="mt-auto pt-10 border-l-4 border-gold-deep bg-paper-card rounded-sm px-8 py-7">
-              <p className="font-serif italic text-xl leading-relaxed text-ink">
+        <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex flex-col gap-6">
+            <div className="rounded-[28px] bg-forest-tint p-8">
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-forest mb-3 block">
+                {kontext.zeitraumLabel}
+              </span>
+              <span className="font-display font-black text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-ink">
+                {kontext.zeitraum}
+              </span>
+            </div>
+            <div className="rounded-[28px] bg-ink px-8 py-7">
+              <p className="font-display font-bold text-xl leading-relaxed text-white">
                 „{kontext.quote}“
               </p>
-            </blockquote>
+            </div>
           </div>
 
-          <div>
-            <span className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-forest mb-2 block">
+          <div className="rounded-[28px] border border-line p-8">
+            <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-gold-ink mb-4 block">
               Erarbeitet gemeinsam von
             </span>
             <ul className="flex flex-col">
               {kontext.contributors.map((c, i) => (
                 <li
                   key={c.name}
-                  className={`flex items-baseline justify-between gap-6 py-5 border-t border-line ${
+                  className={`flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-5 border-t border-line ${
                     i === kontext.contributors.length - 1 ? "border-b" : ""
                   }`}
                 >
-                  <span className="font-sans text-lg font-semibold text-ink">{c.name}</span>
-                  <span className="font-sans text-sm text-muted text-right">{c.role}</span>
+                  <span className="font-display font-bold text-lg text-ink">{c.name}</span>
+                  <span className="font-sans text-sm text-muted">{c.role}</span>
                 </li>
               ))}
             </ul>
@@ -87,70 +114,70 @@ export default function Home() {
         </div>
       </Section>
 
-      <RiverDivider className="bg-paper" />
-
       {/* Übersicht */}
-      <Section tone="forest" className="relative overflow-hidden">
-        <Eyebrow>{overviewIntro.kicker}</Eyebrow>
-        <h2 className="font-serif font-normal text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight text-white max-w-3xl">
+      <Section tone="cream" id="uebersicht">
+        <Tag tone="forest">{overviewIntro.kicker}</Tag>
+        <h2 className="mt-4 font-display font-extrabold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight text-ink max-w-3xl">
           {overviewIntro.title}
         </h2>
-        <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-white/75">
+        <p className="mt-5 max-w-3xl font-sans text-base leading-relaxed text-muted">
           {overviewIntro.lead}
         </p>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Tile
-            href="/synergien"
-            eyebrow="Synergien & Schnittstellen"
-            title="LaNa · KoKoPol · KoKoTschech · Europabildung"
-            teaser="Fünf Synergiefelder verbinden die Arbeit systematisch miteinander."
-            mark="a–e"
+        <div className="relative mt-14">
+          <RiverThread
+            className="pointer-events-none absolute -inset-x-10 -top-10 -bottom-10 hidden w-[calc(100%+5rem)] opacity-[0.4] lg:block"
+            tone="gold"
           />
-          {workPackages.map((wp) => (
+          <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <Tile
-              key={wp.id}
-              href={`/${wp.slug}`}
-              eyebrow={`Arbeitspaket ${wp.number}`}
-              title={wp.title}
-              teaser={wp.subtitle}
-              mark={wp.id}
+              href="/synergien"
+              eyebrow="Synergien & Schnittstellen"
+              title="LaNa · KoKoPol · KoKoTschech · Europabildung"
+              teaser="Fünf Synergiefelder verbinden die Arbeit systematisch miteinander."
+              mark="a–e"
+              tone="forest"
             />
-          ))}
+            {workPackages.map((wp, i) => (
+              <Tile
+                key={wp.id}
+                href={`/${wp.slug}`}
+                eyebrow={`Arbeitspaket ${wp.number}`}
+                title={wp.title}
+                teaser={wp.subtitle}
+                mark={wp.id}
+                tone={tileTones[i + 1]}
+              />
+            ))}
+          </div>
         </div>
       </Section>
 
       {/* Mitgestalten */}
-      <Section tone="paper">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20 items-start">
+      <Section tone="white">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16 items-start">
           <div>
-            <Eyebrow tone="forest">{mitgestalten.kicker}</Eyebrow>
-            <h2 className="font-serif font-normal text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight text-ink">
+            <Tag tone="gold">{mitgestalten.kicker}</Tag>
+            <h2 className="mt-4 font-display font-extrabold text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight text-ink">
               {mitgestalten.title}
             </h2>
-            <p className="mt-6 font-serif italic text-lg leading-relaxed text-ink/85 max-w-lg">
+            <p className="mt-6 font-sans text-lg leading-relaxed text-ink/80 max-w-lg">
               {mitgestalten.lead}
             </p>
-            <a
-              href={`mailto:${mitgestalten.contactEmail}`}
-              className="mt-8 inline-flex items-center gap-2 rounded-sm bg-forest px-6 py-3 font-sans text-sm font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-forest-deep"
-            >
-              {mitgestalten.contactLabel}
-              <span aria-hidden="true">→</span>
+            <a href={`mailto:${mitgestalten.contactEmail}`} className="group mt-8 inline-block">
+              <ButtonLabel variant="dark">{mitgestalten.contactLabel}</ButtonLabel>
             </a>
           </div>
-          <ul className="flex flex-col">
+          <ul className="flex flex-col gap-4">
             {mitgestalten.points.map((p, i) => (
               <li
                 key={p}
-                className={`flex gap-5 items-start py-6 border-t border-line ${
-                  i === mitgestalten.points.length - 1 ? "border-b" : ""
-                }`}
+                className="flex gap-5 items-start rounded-[24px] border border-line p-6"
               >
-                <span className="font-serif italic text-2xl text-gold-ink leading-tight shrink-0">
+                <NumberBadge tone={i % 2 === 0 ? "gold" : "tint"} className="h-12 w-12 shrink-0 text-lg">
                   {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="font-sans text-base leading-relaxed text-ink/85">{p}</p>
+                </NumberBadge>
+                <p className="pt-1.5 font-sans text-base leading-relaxed text-ink/85">{p}</p>
               </li>
             ))}
           </ul>

@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost, JetBrains_Mono } from "next/font/google";
+import { Archivo, Jost } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["600", "700", "800", "900"],
 });
 
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-});
-
-const jbMono = JetBrains_Mono({
-  variable: "--font-jbmono",
-  subsets: ["latin"],
-  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
@@ -31,11 +24,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="de"
-      className={`${cormorant.variable} ${jost.variable} ${jbMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+    <html lang="de" className={`${archivo.variable} ${jost.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-cream text-ink">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

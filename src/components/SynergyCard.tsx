@@ -1,92 +1,81 @@
 import type { SynergyField } from "@/lib/content";
+import { NumberBadge } from "./ui/NumberBadge";
+import { Tag } from "./ui/Tag";
 
-export function SynergyCard({ field }: { field: SynergyField }) {
+const cardTones = ["bg-white border border-line", "bg-forest-tint", "bg-white border border-line", "bg-gold-tint", "bg-white border border-line"];
+const badgeTones: Array<"forest" | "gold" | "tint"> = ["forest", "gold", "forest", "gold", "forest"];
+
+export function SynergyCard({ field, index }: { field: SynergyField; index: number }) {
+  const cardTone = cardTones[index % cardTones.length];
+  const badgeTone = badgeTones[index % badgeTones.length];
+
   return (
-    <article id={field.slug} className="scroll-mt-24 py-16 border-t border-line first:border-t-0 lg:py-20">
-      <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
-        <div className="flex items-start gap-6 lg:flex-col lg:gap-3">
-          <span className="font-serif italic font-medium text-[clamp(3.5rem,8vw,6rem)] leading-[0.8] text-gold-ink">
-            {field.letter}
-          </span>
-          <div className="pt-2 lg:pt-0">
-            <div className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-forest mb-1">
-              Synergiefeld
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h2 className="font-serif font-normal text-[clamp(1.75rem,3.2vw,2.5rem)] leading-tight text-ink max-w-3xl">
+    <article
+      id={field.slug}
+      className={`relative z-10 scroll-mt-24 rounded-[28px] p-7 lg:p-10 ${cardTone}`}
+    >
+      <div className="flex items-start gap-5 lg:gap-7">
+        <NumberBadge tone={badgeTone} className="h-16 w-16 shrink-0 text-2xl lg:h-20 lg:w-20 lg:text-3xl">
+          {field.letter}
+        </NumberBadge>
+        <div className="pt-1">
+          <Tag tone="line">Synergiefeld</Tag>
+          <h2 className="mt-3 font-display font-extrabold text-[clamp(1.5rem,2.8vw,2.25rem)] leading-tight text-ink">
             {field.title}
           </h2>
-
-          {field.lead && (
-            <p className="mt-6 max-w-3xl font-serif italic text-xl leading-relaxed text-ink/90">
-              {field.lead}
-            </p>
-          )}
-
-          {field.rows && (
-            <div className="mt-8 flex flex-col">
-              {field.rows.map((row, i) => (
-                <div
-                  key={row.tag}
-                  className={`flex flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-6 border-t border-line ${
-                    i === field.rows!.length - 1 ? "border-b" : ""
-                  }`}
-                >
-                  <span
-                    className={`inline-flex shrink-0 items-center justify-center rounded-sm px-4 py-2 font-sans text-xs font-semibold tracking-[0.04em] sm:min-w-[9rem] ${
-                      row.tag === "LaNa"
-                        ? "bg-gold-soft text-gold-ink"
-                        : "bg-forest/10 text-forest"
-                    }`}
-                  >
-                    {row.tag}
-                  </span>
-                  <p className="font-sans text-base leading-relaxed text-ink/85">{row.text}</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {field.extra && (
-            <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink/80">
-              {field.extra}
-            </p>
-          )}
-
-          {field.example && (
-            <div className="mt-8 flex flex-col gap-3 max-w-3xl sm:flex-row sm:items-baseline sm:gap-6">
-              <span className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-forest shrink-0">
-                {field.example.label}
-              </span>
-              <p className="font-sans text-base leading-relaxed text-ink/80">
-                {field.example.text}
-              </p>
-            </div>
-          )}
-
-          {field.tags && (
-            <div className="mt-8 flex flex-wrap gap-3 max-w-3xl">
-              {field.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-sm bg-forest/10 px-5 py-3 font-sans text-sm text-forest"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-10 flex flex-col gap-3 rounded-sm border border-line border-l-4 border-l-gold-deep bg-paper-card px-8 py-7 max-w-3xl">
-            <span className="font-sans text-xs font-bold uppercase tracking-[0.14em] text-gold-ink">
-              → Synergie
-            </span>
-            <p className="font-serif italic text-xl leading-relaxed text-ink">{field.synergy}</p>
-          </div>
         </div>
+      </div>
+
+      {field.lead && (
+        <p className="mt-6 max-w-3xl font-sans text-lg leading-relaxed text-ink/85">{field.lead}</p>
+      )}
+
+      {field.rows && (
+        <div className="mt-6 flex flex-col gap-3">
+          {field.rows.map((row) => (
+            <div
+              key={row.tag}
+              className="flex flex-col gap-3 rounded-2xl bg-white/70 p-5 sm:flex-row sm:items-start sm:gap-6"
+            >
+              <span className="shrink-0 sm:min-w-[8rem]">
+                <Tag tone={row.tag === "LaNa" ? "gold" : "forest"}>{row.tag}</Tag>
+              </span>
+              <p className="font-sans text-[0.95rem] leading-relaxed text-ink/80">{row.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {field.extra && (
+        <p className="mt-6 max-w-3xl font-sans text-[0.95rem] leading-relaxed text-ink/75">
+          {field.extra}
+        </p>
+      )}
+
+      {field.example && (
+        <div className="mt-6 flex flex-col gap-3 max-w-3xl rounded-2xl bg-white/70 p-5 sm:flex-row sm:items-baseline sm:gap-6">
+          <span className="shrink-0">
+            <Tag tone="line">{field.example.label}</Tag>
+          </span>
+          <p className="font-sans text-[0.95rem] leading-relaxed text-ink/80">{field.example.text}</p>
+        </div>
+      )}
+
+      {field.tags && (
+        <div className="mt-6 flex flex-wrap gap-2.5 max-w-3xl">
+          {field.tags.map((tag) => (
+            <Tag key={tag} tone="forest">
+              {tag}
+            </Tag>
+          ))}
+        </div>
+      )}
+
+      <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-ink px-7 py-6 sm:flex-row sm:items-start sm:gap-6">
+        <span className="shrink-0 font-sans text-xs font-bold uppercase tracking-[0.14em] text-gold">
+          → Synergie
+        </span>
+        <p className="font-sans text-base leading-relaxed text-white/90">{field.synergy}</p>
       </div>
     </article>
   );
