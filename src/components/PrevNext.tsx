@@ -16,7 +16,7 @@ export function PrevNext({ prev, next }: { prev: LinkInfo; next: LinkInfo }) {
           <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-muted">
             ← {prev.sub}
           </span>
-          <span className="mt-2 font-display font-extrabold text-xl text-ink group-hover:text-forest">
+          <span className="mt-2 font-display font-extrabold text-xl text-ink group-hover:text-moss">
             {prev.label}
           </span>
         </Link>
@@ -31,7 +31,7 @@ export function PrevNext({ prev, next }: { prev: LinkInfo; next: LinkInfo }) {
           <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-muted">
             {next.sub} →
           </span>
-          <span className="mt-2 font-display font-extrabold text-xl text-ink group-hover:text-forest">
+          <span className="mt-2 font-display font-extrabold text-xl text-ink group-hover:text-moss">
             {next.label}
           </span>
         </Link>

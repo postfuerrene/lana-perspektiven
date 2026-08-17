@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function AP1Page() {
-  return <APDetail wp={wp} />;
+  return <APDetail wp={wp} photoSrc="/assets/hero/ap1.jpg" />;
 }

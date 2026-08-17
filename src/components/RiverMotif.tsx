@@ -1,11 +1,11 @@
 type RiverMotifProps = {
   className?: string;
-  tone?: "gold" | "forest" | "cream";
+  tone?: "gold" | "moss" | "cream";
 };
 
 const strokes = {
   gold: "#ffd85f",
-  forest: "#202b22",
+  moss: "#4f6146",
   cream: "#faf8f2",
 };
 
@@ -43,7 +43,7 @@ export function RiverMotif({ className = "", tone = "gold" }: RiverMotifProps) {
  * The same river, promoted to a structural connector that threads behind a
  * card grid — the visual argument that Synergien tie everything together.
  */
-export function RiverThread({ className = "", tone = "forest" }: RiverMotifProps) {
+export function RiverThread({ className = "", tone = "moss" }: RiverMotifProps) {
   const stroke = strokes[tone];
   return (
     <svg

@@ -4,8 +4,8 @@ type Variant = "gold" | "dark" | "light";
 
 const variants: Record<Variant, { pill: string; icon: string }> = {
   gold: { pill: "bg-gold text-ink group-hover:bg-gold-deep", icon: "bg-ink/10" },
-  dark: { pill: "bg-forest text-white group-hover:bg-forest-deep", icon: "bg-white/15" },
-  light: { pill: "bg-white text-ink group-hover:bg-cream", icon: "bg-ink/10" },
+  dark: { pill: "bg-moss text-white group-hover:bg-moss-deep", icon: "bg-white/15" },
+  light: { pill: "bg-white text-ink border border-line group-hover:bg-cream", icon: "bg-ink/10" },
 };
 
 export function ButtonLabel({

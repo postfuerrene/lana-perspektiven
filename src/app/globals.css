@@ -2,10 +2,10 @@
 
 :root {
   /* Brand */
-  --color-ink: #14201a;
-  --color-forest: #202b22;
-  --color-forest-deep: #10160f;
-  --color-forest-tint: #e6eadf;
+  --color-ink: #182119;
+  --color-moss: #4f6146;
+  --color-moss-deep: #33402c;
+  --color-moss-tint: #e6ebde;
   --color-gold: #ffd85f;
   --color-gold-deep: #d9a72b;
   --color-gold-tint: #fff3d6;
@@ -16,8 +16,8 @@
   --color-cream: #faf8f2;
   --color-white: #ffffff;
   --color-muted: #5c6459;
-  --color-line: rgba(20, 32, 26, 0.12);
-  --color-line-soft: rgba(20, 32, 26, 0.07);
+  --color-line: rgba(24, 33, 25, 0.12);
+  --color-line-soft: rgba(24, 33, 25, 0.07);
 
   /* Type — one confident grotesk family, two weights of personality */
   --font-display: var(--font-archivo), "Arial Black", sans-serif;
@@ -26,9 +26,9 @@
 
 @theme inline {
   --color-ink: var(--color-ink);
-  --color-forest: var(--color-forest);
-  --color-forest-deep: var(--color-forest-deep);
-  --color-forest-tint: var(--color-forest-tint);
+  --color-moss: var(--color-moss);
+  --color-moss-deep: var(--color-moss-deep);
+  --color-moss-tint: var(--color-moss-tint);
   --color-gold: var(--color-gold);
   --color-gold-deep: var(--color-gold-deep);
   --color-gold-tint: var(--color-gold-tint);

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ButtonLabel } from "./ui/Button";
 
-type Tone = "forest" | "gold" | "tint" | "white";
+type Tone = "moss" | "gold" | "tint" | "white";
 
 const tones: Record<Tone, { bg: string; title: string; body: string; mark: string; eyebrow: string; btn: "gold" | "dark" | "light" }> = {
-  forest: { bg: "bg-forest", title: "text-white", body: "text-white/75", mark: "text-white/20", eyebrow: "text-gold", btn: "gold" },
-  gold: { bg: "bg-gold", title: "text-ink", body: "text-ink/70", mark: "text-ink/15", eyebrow: "text-forest", btn: "dark" },
-  tint: { bg: "bg-forest-tint", title: "text-ink", body: "text-ink/70", mark: "text-forest/15", eyebrow: "text-forest", btn: "dark" },
+  moss: { bg: "bg-moss", title: "text-white", body: "text-white/85", mark: "text-white/20", eyebrow: "text-gold", btn: "gold" },
+  gold: { bg: "bg-gold", title: "text-ink", body: "text-ink/70", mark: "text-ink/15", eyebrow: "text-moss-deep", btn: "dark" },
+  tint: { bg: "bg-moss-tint", title: "text-ink", body: "text-ink/70", mark: "text-moss/15", eyebrow: "text-moss", btn: "dark" },
   white: { bg: "bg-white border border-line", title: "text-ink", body: "text-ink/70", mark: "text-ink/10", eyebrow: "text-gold-ink", btn: "dark" },
 };
 

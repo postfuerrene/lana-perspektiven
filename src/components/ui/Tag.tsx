@@ -1,7 +1,7 @@
-type Tone = "forest" | "gold" | "line";
+type Tone = "moss" | "gold" | "line";
 
 const tones: Record<Tone, string> = {
-  forest: "bg-forest text-white",
+  moss: "bg-moss text-white",
   gold: "bg-gold-tint text-gold-ink",
   line: "bg-white text-ink border border-line",
 };

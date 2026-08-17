@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/components/Section";
-import { Tile } from "@/components/Tile";
-import { RiverMotif, RiverThread } from "@/components/RiverMotif";
+import { RouteOverview, type Stop } from "@/components/RouteOverview";
+import { RiverMotif } from "@/components/RiverMotif";
 import { Tag } from "@/components/ui/Tag";
 import { ButtonLabel } from "@/components/ui/Button";
 import { NumberBadge } from "@/components/ui/NumberBadge";
@@ -11,9 +11,26 @@ import { meta, kontext, overviewIntro, mitgestalten, workPackages } from "@/lib/
 // Drop a file at /public/assets/hero/home.jpg and set this to
 // "/assets/hero/home.jpg" to swap the abstract motif for a real photo.
 // See IMAGES.md for the recommended Pexels search + crop.
-const HERO_PHOTO: string | undefined = undefined;
+const HERO_PHOTO: string | undefined = "/assets/hero/home.jpg";
 
-const tileTones = ["forest", "gold", "tint", "white", "tint", "gold"] as const;
+const stops: Stop[] = [
+  {
+    href: "/synergien",
+    eyebrow: "Synergien & Schnittstellen",
+    title: "LaNa · KoKoPol · KoKoTschech · Europabildung",
+    teaser: "Fünf Synergiefelder verbinden die Arbeit systematisch miteinander.",
+    mark: "a–e",
+    tone: "moss",
+  },
+  ...workPackages.map((wp) => ({
+    href: `/${wp.slug}`,
+    eyebrow: `Arbeitspaket ${wp.number}`,
+    title: wp.title,
+    teaser: wp.subtitle,
+    mark: wp.id,
+    tone: "gold" as const,
+  })),
+];
 
 export default function Home() {
   return (
@@ -23,7 +40,7 @@ export default function Home() {
         {HERO_PHOTO ? (
           <>
             <Image src={HERO_PHOTO} alt="" fill priority className="object-cover" sizes="100vw" />
-            <div className="absolute inset-0 bg-forest/70" />
+            <div className="absolute inset-0 bg-moss/70" />
           </>
         ) : (
           <>
@@ -32,14 +49,14 @@ export default function Home() {
               aria-hidden="true"
             />
             <div
-              className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-forest-tint"
+              className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-moss-tint"
               aria-hidden="true"
             />
-            <RiverMotif className="absolute inset-x-0 bottom-0 h-48 w-full opacity-60" tone="forest" />
+            <RiverMotif className="absolute inset-x-0 bottom-0 h-48 w-full opacity-60" tone="moss" />
           </>
         )}
         <div className="relative mx-auto flex min-h-[82vh] max-w-[1440px] flex-col justify-center px-6 py-20 lg:px-10">
-          <Tag tone={HERO_PHOTO ? "line" : "forest"}>{meta.kicker}</Tag>
+          <Tag tone={HERO_PHOTO ? "line" : "moss"}>{meta.kicker}</Tag>
           <h1
             className={`mt-7 max-w-4xl font-display font-black text-[clamp(2.75rem,7.5vw,6rem)] leading-[0.98] ${
               HERO_PHOTO ? "text-white" : "text-ink"
@@ -56,7 +73,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link href="#uebersicht" className="group">
-              <ButtonLabel variant="dark">Bausteine entdecken</ButtonLabel>
+              <ButtonLabel variant="dark">Die Route entdecken</ButtonLabel>
             </Link>
             <span
               className={`font-sans text-sm font-semibold uppercase tracking-[0.06em] ${
@@ -78,15 +95,15 @@ export default function Home() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="flex flex-col gap-6">
-            <div className="rounded-[28px] bg-forest-tint p-8">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-forest mb-3 block">
+            <div className="rounded-[28px] bg-moss-tint p-8">
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-moss mb-3 block">
                 {kontext.zeitraumLabel}
               </span>
               <span className="font-display font-black text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-ink">
                 {kontext.zeitraum}
               </span>
             </div>
-            <div className="rounded-[28px] bg-ink px-8 py-7">
+            <div className="rounded-[28px] bg-moss-deep px-8 py-7">
               <p className="font-display font-bold text-xl leading-relaxed text-white">
                 „{kontext.quote}“
               </p>
@@ -114,9 +131,9 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Übersicht */}
+      {/* Übersicht — die Route */}
       <Section tone="cream" id="uebersicht">
-        <Tag tone="forest">{overviewIntro.kicker}</Tag>
+        <Tag tone="moss">{overviewIntro.kicker}</Tag>
         <h2 className="mt-4 font-display font-extrabold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight text-ink max-w-3xl">
           {overviewIntro.title}
         </h2>
@@ -124,32 +141,8 @@ export default function Home() {
           {overviewIntro.lead}
         </p>
 
-        <div className="relative mt-14">
-          <RiverThread
-            className="pointer-events-none absolute -inset-x-10 -top-10 -bottom-10 hidden w-[calc(100%+5rem)] opacity-[0.4] lg:block"
-            tone="gold"
-          />
-          <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <Tile
-              href="/synergien"
-              eyebrow="Synergien & Schnittstellen"
-              title="LaNa · KoKoPol · KoKoTschech · Europabildung"
-              teaser="Fünf Synergiefelder verbinden die Arbeit systematisch miteinander."
-              mark="a–e"
-              tone="forest"
-            />
-            {workPackages.map((wp, i) => (
-              <Tile
-                key={wp.id}
-                href={`/${wp.slug}`}
-                eyebrow={`Arbeitspaket ${wp.number}`}
-                title={wp.title}
-                teaser={wp.subtitle}
-                mark={wp.id}
-                tone={tileTones[i + 1]}
-              />
-            ))}
-          </div>
+        <div className="mt-16">
+          <RouteOverview stops={stops} />
         </div>
       </Section>
 
@@ -170,10 +163,7 @@ export default function Home() {
           </div>
           <ul className="flex flex-col gap-4">
             {mitgestalten.points.map((p, i) => (
-              <li
-                key={p}
-                className="flex gap-5 items-start rounded-[24px] border border-line p-6"
-              >
+              <li key={p} className="flex gap-5 items-start rounded-[24px] border border-line p-6">
                 <NumberBadge tone={i % 2 === 0 ? "gold" : "tint"} className="h-12 w-12 shrink-0 text-lg">
                   {String(i + 1).padStart(2, "0")}
                 </NumberBadge>

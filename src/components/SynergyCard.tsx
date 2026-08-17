@@ -2,8 +2,8 @@ import type { SynergyField } from "@/lib/content";
 import { NumberBadge } from "./ui/NumberBadge";
 import { Tag } from "./ui/Tag";
 
-const cardTones = ["bg-white border border-line", "bg-forest-tint", "bg-white border border-line", "bg-gold-tint", "bg-white border border-line"];
-const badgeTones: Array<"forest" | "gold" | "tint"> = ["forest", "gold", "forest", "gold", "forest"];
+const cardTones = ["bg-white border border-line", "bg-moss-tint", "bg-white border border-line", "bg-gold-tint", "bg-white border border-line"];
+const badgeTones: Array<"moss" | "gold" | "tint"> = ["moss", "gold", "moss", "gold", "moss"];
 
 export function SynergyCard({ field, index }: { field: SynergyField; index: number }) {
   const cardTone = cardTones[index % cardTones.length];
@@ -38,7 +38,7 @@ export function SynergyCard({ field, index }: { field: SynergyField; index: numb
               className="flex flex-col gap-3 rounded-2xl bg-white/70 p-5 sm:flex-row sm:items-start sm:gap-6"
             >
               <span className="shrink-0 sm:min-w-[8rem]">
-                <Tag tone={row.tag === "LaNa" ? "gold" : "forest"}>{row.tag}</Tag>
+                <Tag tone={row.tag === "LaNa" ? "gold" : "moss"}>{row.tag}</Tag>
               </span>
               <p className="font-sans text-[0.95rem] leading-relaxed text-ink/80">{row.text}</p>
             </div>
@@ -64,14 +64,14 @@ export function SynergyCard({ field, index }: { field: SynergyField; index: numb
       {field.tags && (
         <div className="mt-6 flex flex-wrap gap-2.5 max-w-3xl">
           {field.tags.map((tag) => (
-            <Tag key={tag} tone="forest">
+            <Tag key={tag} tone="moss">
               {tag}
             </Tag>
           ))}
         </div>
       )}
 
-      <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-ink px-7 py-6 sm:flex-row sm:items-start sm:gap-6">
+      <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-moss-deep px-7 py-6 sm:flex-row sm:items-start sm:gap-6">
         <span className="shrink-0 font-sans text-xs font-bold uppercase tracking-[0.14em] text-gold">
           → Synergie
         </span>
