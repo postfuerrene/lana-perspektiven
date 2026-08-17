@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand */
+  --color-ink: #16211a;
+  --color-forest: #202b22;
+  --color-forest-deep: #141b16;
+  --color-forest-mist: #3d4c3f;
+  --color-gold: #ffd85f;
+  --color-gold-deep: #d9a72b;
+  --color-gold-soft: #fff3d6;
+  /* Accessible on paper/white text (~5:1) — gold-deep only clears AA on dark backgrounds. */
+  --color-gold-ink: #8a6710;
+
+  /* Neutrals */
+  --color-paper: #f6f1e6;
+  --color-paper-card: #fffdf8;
+  --color-muted: #5c6459;
+  --color-line: rgba(22, 33, 26, 0.14);
+  --color-line-soft: rgba(22, 33, 26, 0.07);
+
+  /* Type */
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-jost), "Gill Sans", Optima, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-forest: var(--color-forest);
+  --color-forest-deep: var(--color-forest-deep);
+  --color-forest-mist: var(--color-forest-mist);
+  --color-gold: var(--color-gold);
+  --color-gold-deep: var(--color-gold-deep);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-gold-ink: var(--color-gold-ink);
+  --color-paper: var(--color-paper);
+  --color-paper-card: var(--color-paper-card);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-line-soft: var(--color-line-soft);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold-deep);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
