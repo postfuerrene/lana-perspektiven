@@ -73,7 +73,7 @@ export function SynergyCard({ field, index }: { field: SynergyField; index: numb
 
       <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-moss-deep px-7 py-6 sm:flex-row sm:items-start sm:gap-6">
         <span className="shrink-0 font-sans text-xs font-bold uppercase tracking-[0.14em] text-gold">
-          → Synergie
+          → Mögliche Synergie
         </span>
         <p className="font-sans text-base leading-relaxed text-white/90">{field.synergy}</p>
       </div>

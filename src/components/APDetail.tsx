@@ -20,9 +20,20 @@ export function APDetail({ wp, photoSrc }: { wp: WorkPackage; photoSrc?: string 
         photoSrc={photoSrc}
       />
 
+      {/* Vorschlags-Hinweis */}
+      <Section tone="cream" className="!py-8">
+        <div className="flex flex-col gap-2 rounded-2xl border border-line bg-white px-6 py-5 max-w-3xl sm:flex-row sm:items-start sm:gap-4">
+          <Tag tone="gold">Ideenskizze</Tag>
+          <p className="font-sans text-sm leading-relaxed text-ink/70">
+            Dieser Baustein ist ein Vorschlag zur Diskussion, keine beschlossene Maßnahme. Ob und in
+            welcher Form er 2027/28 umgesetzt wird, entscheidet sich gemeinsam mit den Beteiligten.
+          </p>
+        </div>
+      </Section>
+
       {/* Ziel — full-width statement, not a side card */}
-      <Section tone="white" className="!pb-10">
-        <Tag tone="gold">Ziel</Tag>
+      <Section tone="white" className="!pt-0 !pb-10">
+        <Tag tone="line">Zielrichtung</Tag>
         <p className="mt-5 max-w-4xl font-display font-extrabold text-[clamp(1.5rem,3.4vw,2.5rem)] leading-tight text-ink">
           {wp.ziel}
         </p>
@@ -30,7 +41,7 @@ export function APDetail({ wp, photoSrc }: { wp: WorkPackage; photoSrc?: string 
 
       {/* Projekte — connected vertical timeline */}
       <Section tone="cream" className="!pt-2 !pb-10">
-        <Tag tone="line">Konkrete Projekte &amp; Produkte</Tag>
+        <Tag tone="line">Ideen für Projekte &amp; Formate</Tag>
         <div className="relative mt-8 max-w-3xl">
           <div className="absolute left-[19px] top-2 bottom-2 w-px bg-line" aria-hidden="true" />
           <div className="flex flex-col gap-8">
@@ -47,7 +58,7 @@ export function APDetail({ wp, photoSrc }: { wp: WorkPackage; photoSrc?: string 
         <div className="mt-8 max-w-3xl rounded-2xl bg-gold-tint px-6 py-5">
           <p className="font-sans text-[0.95rem] leading-relaxed text-ink/85">
             <span className="font-bold uppercase tracking-[0.04em] text-gold-ink">
-              Format &amp; Förderung ·{" "}
+              Denkbares Format &amp; Förderung ·{" "}
             </span>
             {wp.format}
           </p>
@@ -56,7 +67,7 @@ export function APDetail({ wp, photoSrc }: { wp: WorkPackage; photoSrc?: string 
 
       {/* Ergebnisse — horizontal outcome strip */}
       <Section tone="white" className="!pt-2">
-        <Tag tone="moss">Messbare Ergebnisse</Tag>
+        <Tag tone="moss">Woran sich Erfolg zeigen könnte</Tag>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {wp.ergebnisse.map((e) => (
             <div key={e} className="rounded-[24px] border border-line p-6">

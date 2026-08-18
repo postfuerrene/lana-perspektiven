@@ -116,10 +116,10 @@ export type WorkPackage = {
 };
 
 export const overviewIntro = {
-  kicker: "Arbeitspakete",
-  title: "Fünf Bausteine für die Weiterentwicklung",
+  kicker: "Diskussionsvorschlag",
+  title: "Fünf mögliche Bausteine für die Weiterentwicklung",
   lead:
-    "Die Bausteine sind ein Angebot – gemeinsam ausgewählt wird, was 2027/28 Priorität bekommt. Die Grundfinanzierung der drei LaNa-Stellen ist nicht zwingend an diese fünf Arbeitspakete gebunden: Mit Energie und Fokus kann daraus auch ein ganz neuer Themenbereich entstehen – etwa Freiwilligendienste DE–PL–CZ.",
+    "Was folgt, ist keine beschlossene Planung, sondern ein Diskussionsangebot: fünf Ideenskizzen, wie sich die LaNa im Verbund der Stiftung IBZ weiterentwickeln könnte. Gemeinsam wird ausgewählt, was 2027/28 tatsächlich Priorität bekommt – die Grundfinanzierung der drei LaNa-Stellen ist an keinen dieser Vorschläge gebunden. Mit Energie und Fokus kann daraus auch ein ganz neuer Themenbereich entstehen, etwa Freiwilligendienste DE–PL–CZ.",
 };
 
 export const workPackages: WorkPackage[] = [
