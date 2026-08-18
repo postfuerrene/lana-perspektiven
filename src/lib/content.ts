@@ -117,7 +117,7 @@ export const overviewIntro = {
   kicker: "Diskussionsvorschlag",
   title: "Fünf mögliche Bausteine für die Weiterentwicklung",
   lead:
-    "Was folgt, ist keine beschlossene Planung, sondern ein Diskussionsangebot: fünf Ideenskizzen, wie sich die LaNa im Verbund der Stiftung IBZ weiterentwickeln könnte. Gemeinsam wird ausgewählt, was 2027/28 tatsächlich Priorität bekommt – die Grundfinanzierung der drei LaNa-Stellen ist an keinen dieser Vorschläge gebunden. Mit Energie und Fokus kann daraus auch ein ganz neuer Themenbereich entstehen, etwa Freiwilligendienste DE–PL–CZ.",
+    "Was folgt, ist keine beschlossene Planung, sondern ein Diskussionsangebot: fünf Ideenskizzen, wie sich die LaNa im Verbund der Stiftung IBZ weiterentwickeln könnte. Die Arbeitspakete sind so gedacht, dass sie die Grundfinanzierung der drei LaNa-Stellen nutzen, um daraus möglichst viele konkrete Formate zu entwickeln. Dafür stehen hier Vorschläge – durch die neue Teamzusammensetzung können aber auch ganz andere Bausteine entstehen, und die Auswahl muss sich nicht zwangsläufig auf das hier Vorgestellte beschränken.",
 };
 
 export const workPackages: WorkPackage[] = [
