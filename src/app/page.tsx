@@ -5,8 +5,7 @@ import { RouteOverview, type Stop } from "@/components/RouteOverview";
 import { RiverMotif } from "@/components/RiverMotif";
 import { Tag } from "@/components/ui/Tag";
 import { ButtonLabel } from "@/components/ui/Button";
-import { NumberBadge } from "@/components/ui/NumberBadge";
-import { meta, kontext, overviewIntro, mitgestalten, workPackages } from "@/lib/content";
+import { meta, kontext, overviewIntro, workPackages } from "@/lib/content";
 
 // Drop a file at /public/assets/hero/home.jpg and set this to
 // "/assets/hero/home.jpg" to swap the abstract motif for a real photo.
@@ -136,34 +135,6 @@ export default function Home() {
 
         <div className="mt-16">
           <RouteOverview stops={stops} />
-        </div>
-      </Section>
-
-      {/* Mitgestalten */}
-      <Section tone="white">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16 items-start">
-          <div>
-            <Tag tone="gold">{mitgestalten.kicker}</Tag>
-            <h2 className="mt-4 font-display font-extrabold text-[clamp(1.75rem,3.5vw,2.5rem)] leading-tight text-ink">
-              {mitgestalten.title}
-            </h2>
-            <p className="mt-6 font-sans text-lg leading-relaxed text-ink/80 max-w-lg">
-              {mitgestalten.lead}
-            </p>
-            <a href={`mailto:${mitgestalten.contactEmail}`} className="group mt-8 inline-block">
-              <ButtonLabel variant="dark">{mitgestalten.contactLabel}</ButtonLabel>
-            </a>
-          </div>
-          <ul className="flex flex-col gap-4">
-            {mitgestalten.points.map((p, i) => (
-              <li key={p} className="flex gap-5 items-start rounded-[24px] border border-line p-6">
-                <NumberBadge tone={i % 2 === 0 ? "gold" : "tint"} className="h-12 w-12 shrink-0 text-lg">
-                  {String(i + 1).padStart(2, "0")}
-                </NumberBadge>
-                <p className="pt-1.5 font-sans text-base leading-relaxed text-ink/85">{p}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </Section>
     </>
