@@ -110,7 +110,7 @@ export type WorkPackage = {
   title: string;
   subtitle: string;
   ziel: string;
-  projekte: { num: string; text: string }[];
+  projekte: { num: string; text: string; example?: string }[];
   format: string;
   ergebnisse: string[];
 };
@@ -131,16 +131,16 @@ export const workPackages: WorkPackage[] = [
     subtitle: "Die LaNa als europäisches Kompetenzzentrum für sprachliche Bildung im Grenzraum.",
     ziel: "Aufbau eines umfassenden, europäischen Ansatzes zur Förderung der Nachbarsprachen Polnisch und Tschechisch – über alle Bildungsphasen hinweg.",
     projekte: [
-      { num: "01", text: "Curriculum „Nachbarsprachen 0–18+“ – Werkstattreihe mit Kita-, Schul- und Fachvertreter:innen zur Erarbeitung eines abgestimmten Sprachlernpfads über die Bildungsstufen hinweg." },
-      { num: "02", text: "Trilaterales Schul- und Austauschnetzwerk – Partnerschaften zwischen einzelnen Schulen DE–CZ–PL, jährliche Austauschbegegnungen." },
-      { num: "03", text: "Kooperation mit Hochschulen – gemeinsame Fortbildungsmodule für Lehramtsstudierende mit TU Dresden, TU Liberec, Uni Wrocław." },
+      { num: "01", text: "Curriculum „Nachbarsprachen 0–18+“ – Werkstattreihe mit Kita-, Schul- und Fachvertreter:innen zur Erarbeitung eines abgestimmten Sprachlernpfads über die Bildungsstufen hinweg.", example: "Pilotmodul zum Übergang Kita–Grundschule mit Fokus auf Alltagssprache Tschechisch/Polnisch." },
+      { num: "02", text: "Trilaterales Schul- und Austauschnetzwerk – Partnerschaften zwischen einzelnen Schulen DE–CZ–PL, jährliche Austauschbegegnungen.", example: "Schulpartnerschaft im Dreiländereck mit jährlicher Begegnungswoche." },
+      { num: "03", text: "Kooperation mit Hochschulen – gemeinsame Fortbildungsmodule für Lehramtsstudierende mit TU Dresden, TU Liberec, Uni Wrocław.", example: "Gemeinsames Seminar „Mehrsprachigkeit im Grenzraum“ für Lehramtsstudierende." },
     ],
     format:
       "Europäische Fachtagung „Mehrsprachigkeit im Grenzraum“ (zweitägige Konferenz mit Impulsvorträgen und Workshops für Bildungsakteure aus den drei Ländern) – Antragsziel: Erasmus+ / Interreg.",
     ergebnisse: [
-      "Curriculum-Pilotmodul (z. B. Kita–Grundschule-Übergang) erarbeitet und erprobt.",
+      "Curriculum-Pilotmodul (Kita–Grundschule-Übergang) bis [Datum] erarbeitet und in mind. 2 Einrichtungen erprobt.",
       "Mind. 3 Partnerschulen im trilateralen Netzwerk aktiv eingebunden bis 2028.",
-      "1 Fachtagung mit definierter Teilnehmerzahl (z. B. 80–100 Personen).",
+      "1 Fachtagung mit X Teilnehmer:innen bis [Datum].",
     ],
   },
   {
@@ -151,16 +151,16 @@ export const workPackages: WorkPackage[] = [
     subtitle: "Nachbarsprache von Anfang an – der originäre Kernauftrag der LaNa.",
     ziel: "Stärkung der frühkindlichen und familienbezogenen Nachbarsprachbildung als langfristige Basis für mehrsprachige Bildungsbiografien.",
     projekte: [
-      { num: "01", text: "Rahmenkonzept „Mehrsprachigkeit 0–10“ – Praxisleitfaden mit konkreten Bausteinen für Kita-Alltag, Elternarbeit und Übergang zur Grundschule." },
-      { num: "02", text: "Qualifizierungsprogramm „Sprachbotschafter:innen Nachbarsprachen“ – mehrteilige Fortbildungsreihe für Kita-Fachkräfte, mit Zertifikat." },
-      { num: "03", text: "Mehrsprachige Elternseminare und Familienprojekte – Wochenendseminare mit paralleler Kinderbetreuung, analog bestehender Familienseminar-Formate." },
+      { num: "01", text: "Rahmenkonzept „Mehrsprachigkeit 0–10“ – Praxisleitfaden mit konkreten Bausteinen für Kita-Alltag, Elternarbeit und Übergang zur Grundschule.", example: "Baustein „mehrsprachiger Morgenkreis“ für den Kita-Alltag." },
+      { num: "02", text: "Qualifizierungsprogramm „Sprachbotschafter:innen Nachbarsprachen“ – mehrteilige Fortbildungsreihe für Kita-Fachkräfte, mit Zertifikat.", example: "Vierteilige Reihe mit Abschluss-Zertifikatsübergabe." },
+      { num: "03", text: "Mehrsprachige Elternseminare und Familienprojekte – Wochenendseminare mit paralleler Kinderbetreuung, analog bestehender Familienseminar-Formate.", example: "Familienwochenende „Mehrsprachig aufwachsen“ mit Kinderprogramm, analog KoKoPol-Familienseminaren." },
     ],
     format:
       "Qualifizierungsreihe „Sprachbotschafter:innen Nachbarsprachen“ (Präsenzmodule an 2–3 Standorten, ergänzt durch digitale Austauschtreffen) – Antragsziel: Interreg (Familien- und Begegnungsprogramme).",
     ergebnisse: [
-      "Qualifizierte Sprachbotschafter:innen pro Durchgang (Zahl mit Team festlegen, orientiert an Kapazität).",
-      "2–3 Elternseminare pro Jahr mit definierter Teilnehmerzahl.",
-      "Reichweite: Anzahl teilnehmender Kita-Einrichtungen im ersten Jahr.",
+      "X qualifizierte Sprachbotschafter:innen pro Durchgang bis [Datum].",
+      "2–3 Elternseminare mit je X teilnehmenden Familien pro Jahr.",
+      "X teilnehmende Kita-Einrichtungen im ersten Jahr.",
     ],
   },
   {
@@ -171,16 +171,16 @@ export const workPackages: WorkPackage[] = [
     subtitle: "Regionen befähigen, Mehrsprachigkeit systemisch zu verankern.",
     ziel: "Unterstützung von Kommunen und Bildungseinrichtungen beim Aufbau nachhaltiger Strukturen für Mehrsprachigkeit im Dreiländereck.",
     projekte: [
-      { num: "01", text: "Kommunales Mehrsprachigkeitskonzept – Beratungsformat: Bestandsaufnahme vor Ort, Handlungsempfehlungen, Begleitung bei der Umsetzung." },
-      { num: "02", text: "Qualitätssiegel „Mehrsprachige Bildungseinrichtung“ – Kriterienkatalog + Prüfverfahren, das Einrichtungen durchlaufen und auszeichnen lässt." },
-      { num: "03", text: "Jährliche Regionalkonferenz Mehrsprachigkeit – eintägige Fachkonferenz mit Vorträgen, Workshops und Vernetzungsformat für Kommunen und Bildungsakteure." },
+      { num: "01", text: "Kommunales Mehrsprachigkeitskonzept – Beratungsformat: Bestandsaufnahme vor Ort, Handlungsempfehlungen, Begleitung bei der Umsetzung.", example: "Pilotberatung für eine Gemeinde oder einen Landkreis im Grenzraum." },
+      { num: "02", text: "Qualitätssiegel „Mehrsprachige Bildungseinrichtung“ – Kriterienkatalog + Prüfverfahren, das Einrichtungen durchlaufen und auszeichnen lässt.", example: "Pilotierung des Siegels mit 2 Kitas in einem Landkreis." },
+      { num: "03", text: "Jährliche Regionalkonferenz Mehrsprachigkeit – eintägige Fachkonferenz mit Vorträgen, Workshops und Vernetzungsformat für Kommunen und Bildungsakteure.", example: "Format angelehnt an das Deutsch-Tschechische Regionalforum, thematisch auf Mehrsprachigkeit fokussiert." },
     ],
     format:
       "Jährliche Regionalkonferenz Mehrsprachigkeit (feste Konferenz mit wechselndem Gastgeberort im Grenzraum) – Antragsziel: Landesprogramme Sachsen, kommunale Kofinanzierung.",
     ergebnisse: [
-      "Anzahl beteiligter Kommunen im Netzwerk bis Ende 2027 (Zahl festlegen).",
-      "Qualitätssiegel: Kriterienkatalog entwickelt und mit 1–2 Pilot-Einrichtungen erprobt.",
-      "1 Regionalkonferenz pro Jahr mit fester Teilnehmerzahl.",
+      "X Kommunen aktiv im Netzwerk eingebunden bis Ende 2027.",
+      "Qualitätssiegel-Kriterienkatalog entwickelt und mit 2 Pilot-Einrichtungen erprobt bis [Datum].",
+      "1 Regionalkonferenz mit X Teilnehmenden pro Jahr ab [Jahr].",
     ],
   },
   {
@@ -191,16 +191,16 @@ export const workPackages: WorkPackage[] = [
     subtitle: "Digitale und KI-basierte Wege zur grenzüberschreitenden Bildungsarbeit.",
     ziel: "Digitale Bildung gezielt einsetzen, um Lernzugänge zu schaffen und Arbeitsprozesse zu unterstützen – nicht auf Sprache beschränkt, sondern offen für Kultur und weitere Komponenten grenzüberschreitender Zusammenarbeit.",
     projekte: [
-      { num: "01", text: "Digitale Akademie Nachbarsprachen und -kultur (Videoformate, Mikro-Lerneinheiten, virtuelle Austauschräume)." },
-      { num: "02", text: "KI-gestützte Lernangebote (Aussprachetraining, personalisierte Lernpfade)." },
-      { num: "03", text: "Custom-KI-Assistenz für Recherche und Materialerstellung (internes Team-Tool zu Partnern, Best Practice und Inhalten)." },
+      { num: "01", text: "Digitale Akademie Nachbarsprachen und -kultur (Videoformate, Mikro-Lerneinheiten, virtuelle Austauschräume).", example: "Videoreihe „5 Minuten Tschechisch/Polnisch für den Kita-Alltag“." },
+      { num: "02", text: "KI-gestützte Lernangebote (Aussprachetraining, personalisierte Lernpfade).", example: "App-gestütztes Aussprachetraining für Grundschulkinder." },
+      { num: "03", text: "Custom-KI-Assistenz für Recherche und Materialerstellung (internes Team-Tool zu Partnern, Best Practice und Inhalten).", example: "Tool zur Recherche passender Förderprogramme und als Formulierungshilfe bei Anträgen." },
     ],
     format:
       "Aufbau der Digitalen Akademie + Pilotierung der KI-gestützten Angebote (Produktion erster Video-Lerneinheiten, Testlauf des Aussprachetrainings mit definierter Nutzer:innengruppe) – Antragsziel: Erasmus+ (digitale Transformation).",
     ergebnisse: [
-      "Produzierte Video-Lerneinheiten (Anzahl gemeinsam festlegen).",
-      "Mind. 1 Pilotdurchlauf der KI-gestützten Lernangebote mit definierter Nutzer:innenzahl.",
-      "Custom-KI-Assistenz für Recherche / Materialerstellung: intern im Team im Einsatz.",
+      "X produzierte Video-Lerneinheiten bis [Datum].",
+      "1 Pilotdurchlauf des KI-gestützten Aussprachetrainings mit X Nutzer:innen bis [Datum].",
+      "Custom-KI-Assistenz im Team im Einsatz ab [Datum].",
     ],
   },
   {
@@ -211,16 +211,16 @@ export const workPackages: WorkPackage[] = [
     subtitle: "Die LaNa als europäische Stimme der Mehrsprachigkeit.",
     ziel: "Die LaNa positioniert sich als wichtiger Akteur in Europa – in Netzwerken, Dialogforen und Förderprogrammen.",
     projekte: [
-      { num: "01", text: "Teilnahme an Erasmus+, Interreg und Jean-Monnet-Initiativen – Antragstellung und Durchführung konkreter Projekte, z. B. Lehrkräftefortbildung in der Dreiländerregion, als Partner oder Antragsteller." },
-      { num: "02", text: "Aufbau eines LaNa Advisory Boards – Gremium aus 5–8 europäischen Expert:innen, tagt 1–2× jährlich zur strategischen Einordnung." },
-      { num: "03", text: "Trinationale Projekte DE–CZ–PL für Schulen, Fachkräfte und Familien – konkrete Begegnungs- und Fortbildungsformate mit Partnerorganisationen in Polen und Tschechien." },
+      { num: "01", text: "Teilnahme an Erasmus+, Interreg und Jean-Monnet-Initiativen – Antragstellung und Durchführung konkreter Projekte, z. B. Lehrkräftefortbildung in der Dreiländerregion, als Partner oder Antragsteller.", example: "Projekt „Lehrkräftefortbildung in der Dreiländerregion“ als Konsortialpartner." },
+      { num: "02", text: "Aufbau eines LaNa Advisory Boards – Gremium aus 5–8 europäischen Expert:innen, tagt 1–2× jährlich zur strategischen Einordnung.", example: "Besetzung mit Vertreter:innen aus Wissenschaft, Politik und Zivilgesellschaft aus DE–CZ–PL." },
+      { num: "03", text: "Trinationale Projekte DE–CZ–PL für Schulen, Fachkräfte und Familien – konkrete Begegnungs- und Fortbildungsformate mit Partnerorganisationen in Polen und Tschechien.", example: "Gemeinsames Jugendcamp DE–CZ–PL, z. B. anlässlich des 35. Jubiläums des Nachbarschaftsvertrags." },
     ],
     format:
       "Aufbau LaNa Advisory Board mit begleitenden Policy Papers (Gremium konstituieren, danach 1–2 Positionspapiere pro Jahr für Ministerien und EU-Netzwerke) – Antragsziel: Jean-Monnet-Initiative / Interreg.",
     ergebnisse: [
-      "Mind. 2 laufende Interreg- / Erasmus+-Partnerschaften.",
-      "Advisory Board besetzt (Anzahl Mitglieder festlegen).",
-      "1–2 Policy Papers pro Jahr.",
+      "Mind. 2 laufende Interreg-/Erasmus+-Partnerschaften bis [Jahr].",
+      "Advisory Board mit X Mitgliedern besetzt bis [Datum].",
+      "X Policy Papers pro Jahr ab [Jahr].",
     ],
   },
 ];

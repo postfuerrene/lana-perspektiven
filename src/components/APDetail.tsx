@@ -50,7 +50,15 @@ export function APDetail({ wp, photoSrc }: { wp: WorkPackage; photoSrc?: string 
                 <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-moss-tint font-display font-black text-sm text-moss">
                   {p.num}
                 </span>
-                <p className="pt-2 font-sans text-[1.02rem] leading-relaxed text-ink/85">{p.text}</p>
+                <div className="pt-2">
+                  <p className="font-sans text-[1.02rem] leading-relaxed text-ink/85">{p.text}</p>
+                  {p.example && (
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-ink/60">
+                      <span className="font-semibold text-gold-ink">Beispiel · </span>
+                      {p.example}
+                    </p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
