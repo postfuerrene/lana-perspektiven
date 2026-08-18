@@ -94,20 +94,13 @@ export default function Home() {
         </h2>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex flex-col gap-6">
-            <div className="rounded-[28px] bg-moss-tint p-8">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-moss mb-3 block">
-                {kontext.zeitraumLabel}
-              </span>
-              <span className="font-display font-black text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-ink">
-                {kontext.zeitraum}
-              </span>
-            </div>
-            <div className="rounded-[28px] bg-moss-deep px-8 py-7">
-              <p className="font-display font-bold text-xl leading-relaxed text-white">
-                „{kontext.quote}“
-              </p>
-            </div>
+          <div className="flex flex-col rounded-[28px] bg-moss-tint p-8 justify-center">
+            <span className="font-sans text-xs font-bold uppercase tracking-[0.12em] text-moss mb-3 block">
+              {kontext.zeitraumLabel}
+            </span>
+            <span className="font-display font-black text-[clamp(1.75rem,3vw,2.5rem)] leading-tight text-ink">
+              {kontext.zeitraum}
+            </span>
           </div>
 
           <div className="rounded-[28px] border border-line p-8">

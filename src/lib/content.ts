@@ -1,6 +1,6 @@
 export const meta = {
   kicker: "LaNa-Perspektiven 2027/28",
-  title: "Wo geht die Reise hin?",
+  title: "Wo könnte die Reise hingehen?",
   subtitle: "Perspektiven für die LaNa im Verbund der Stiftung IBZ",
   date: "20.08.2026",
   author: "René Seidel",
@@ -9,8 +9,6 @@ export const meta = {
 export const kontext = {
   zeitraumLabel: "Zeitraum der Erarbeitung",
   zeitraum: "November 2025 – Januar 2026",
-  quote:
-    "Eine gemeinsam getragene Perspektive der Leitungsebene für die Zukunft der LaNa im IBZ-Verbund.",
   contributors: [
     { name: "Gregor Schaaf-Schuchardt", role: "Vorstandsvorsitzender" },
     { name: "Gunnar Hille", role: "KoKoPol · Public Relations" },

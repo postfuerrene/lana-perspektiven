@@ -17,7 +17,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Wo geht die Reise hin? — LaNa-Perspektiven",
+  title: "Wo könnte die Reise hingehen? — LaNa-Perspektiven",
   description:
     "Perspektiven für die Landesstelle Nachbarsprachen Sachsen im Verbund der Stiftung IBZ St. Marienthal.",
 };
